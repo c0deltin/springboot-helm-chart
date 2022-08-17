@@ -1,0 +1,16 @@
+# deployment/manifests/prediction-server/release.yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: springboot-demoweb
+  namespace: springboot-demoweb
+spec:
+  releaseName: springboot-demoweb
+  chart:
+    spec:
+      chart: springboot-demoweb
+      sourceRef:
+        kind: HelmRepository
+        name: local
+        namespace: flux-system
+      version: 0.1.0
